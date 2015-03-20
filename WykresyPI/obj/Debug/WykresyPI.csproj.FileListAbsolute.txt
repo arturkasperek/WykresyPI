@@ -1,0 +1,13 @@
+c:\users\art1\documents\visual studio 2013\Projects\WykresyPI\WykresyPI\bin\Debug\WykresyPI.exe.config
+C:\Users\Art1\documents\visual studio 2013\Projects\WykresyPI\WykresyPI\bin\Debug\WykresyPI.exe
+C:\Users\Art1\documents\visual studio 2013\Projects\WykresyPI\WykresyPI\bin\Debug\WykresyPI.pdb
+C:\Users\Art1\documents\visual studio 2013\Projects\WykresyPI\WykresyPI\obj\Debug\WykresyPI.csprojResolveAssemblyReference.cache
+C:\Users\Art1\documents\visual studio 2013\Projects\WykresyPI\WykresyPI\obj\Debug\MainWindow.baml
+C:\Users\Art1\documents\visual studio 2013\Projects\WykresyPI\WykresyPI\obj\Debug\MainWindow.g.cs
+C:\Users\Art1\documents\visual studio 2013\Projects\WykresyPI\WykresyPI\obj\Debug\App.g.cs
+C:\Users\Art1\documents\visual studio 2013\Projects\WykresyPI\WykresyPI\obj\Debug\WykresyPI_MarkupCompile.cache
+C:\Users\Art1\documents\visual studio 2013\Projects\WykresyPI\WykresyPI\obj\Debug\WykresyPI.g.resources
+C:\Users\Art1\documents\visual studio 2013\Projects\WykresyPI\WykresyPI\obj\Debug\WykresyPI.Properties.Resources.resources
+C:\Users\Art1\documents\visual studio 2013\Projects\WykresyPI\WykresyPI\obj\Debug\WykresyPI.csproj.GenerateResource.Cache
+C:\Users\Art1\documents\visual studio 2013\Projects\WykresyPI\WykresyPI\obj\Debug\WykresyPI.exe
+C:\Users\Art1\documents\visual studio 2013\Projects\WykresyPI\WykresyPI\obj\Debug\WykresyPI.pdb
