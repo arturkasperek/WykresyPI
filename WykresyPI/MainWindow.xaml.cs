@@ -77,10 +77,10 @@ namespace WykresyPI
                         sample = "";
                         break;
                     }
-                    if (pom == 1 && line[y] != ' ' && line[y] != ','&& line[y]!='\0') pom = 0;
+                    if (pom == 1 && line[y] != ' ' && line[y]!=';'&& line[y] != ','&& line[y]!='\0') pom = 0;
                     if (pom == 0)//czytamy wyraz
                     {
-                        if (line[y] == ' ' || line[y] == ',' && line[y] != '\0')
+                        if (line[y] == ' '||line[y]==';' || line[y] == ',' && line[y] != '\0')
                         {
                             pomList.Add(sample);
                             sample = "";
@@ -116,31 +116,66 @@ namespace WykresyPI
             }
             var positionDictionary = new Dictionary<string, int>();
             int yOffSet = 20;
+            canvasObj.Height = yOffSet+10 + 25*doNarysowania.Count;
+            canvasObj.Width = 70 + listaRozkazow.Count*80;
+            if (CheckBoxObj2.IsChecked == true) canvasObj.Background = Brushes.White;
+            else canvasObj.Background = Brushes.Azure;
+            if (CheckBoxObj.IsChecked == true) canvasObj.Background = Brushes.White;
             foreach (var variable in doNarysowania)
             {
-                Line(0,yOffSet+5,500,yOffSet+5,Color.FromRgb(255,200,30));
-                Text(10,yOffSet,variable,Color.FromRgb(255,100,0));
+                if (CheckBoxObj.IsChecked == true) Line(0, yOffSet + 5, 70 + listaRozkazow.Count * 80, yOffSet + 5, Color.FromRgb(0, 0, 0)); 
+                else Line(0,yOffSet+5,70+listaRozkazow.Count*80,yOffSet+5,Color.FromRgb(255,200,30));
+                if (CheckBoxObj.IsChecked == true) Text(10, yOffSet, variable, Color.FromRgb(0,0, 0));
+                else Text(10,yOffSet,variable,Color.FromRgb(255,100,0));
                 positionDictionary[variable] = yOffSet;
                 yOffSet += 25;
             }
-            Line(0,yOffSet+5,500,yOffSet+5,Color.FromRgb(255,200,30));
+            if (CheckBoxObj.IsChecked == true) Line(0, yOffSet + 5, 70 + listaRozkazow.Count * 80, yOffSet + 5, Color.FromRgb(0,0,0));
+            else Line(0,yOffSet+5,70+listaRozkazow.Count*80,yOffSet+5,Color.FromRgb(255,200,30));
             int xOffSet = 70;
             //yOffSet = 20;
-            Text(2, 5, "Takty:", Color.FromRgb(254, 12, 200));
+            if (CheckBoxObj.IsChecked == true) Text(2, 5, "Takty:", Color.FromRgb(0,0,0));
+            else Text(2, 5, "Takty:", Color.FromRgb(254, 12, 200));
             int pomvar = 1;
             foreach (var variable in listaRozkazow)
             {
-                Line(xOffSet,20,xOffSet,400,Color.FromRgb(100,255,55));
-                Text(xOffSet,5,"f"+pomvar.ToString(),Color.FromRgb(254,12,200));
+                if (CheckBoxObj.IsChecked == true)
+                {
+                    Line(xOffSet, 20, xOffSet, canvasObj.Height, Color.FromRgb(0, 0, 0));
+                    Text(xOffSet - 25, 5, "f" + pomvar.ToString(), Color.FromRgb(0, 0, 0));
+                }
+                else
+                {
+                    Line(xOffSet, 20, xOffSet, canvasObj.Height, Color.FromRgb(100, 255, 55));
+                    Text(xOffSet - 25, 5, "f" + pomvar.ToString(), Color.FromRgb(254, 12, 200));
+                }
                 foreach (var variable2 in variable)
                 {
-                    if (ciagle.Contains(variable2))
+                    if (CheckBoxObj.IsChecked == true)
                     {
-                        Rectangle(xOffSet-30,positionDictionary[variable2]+15,xOffSet,positionDictionary[variable2]+25,Color.FromRgb(30,34,123));
+                        if (ciagle.Contains(variable2))
+                        {
+                            Rectangle(xOffSet - 30, positionDictionary[variable2] + 15, xOffSet,
+                                positionDictionary[variable2] + 25, Color.FromRgb(0, 0, 0));
+                        }
+                        if (impulsowe.Contains(variable2))
+                        {
+                            Rectangle(xOffSet - 10, positionDictionary[variable2] + 15, xOffSet,
+                                positionDictionary[variable2] + 25, Color.FromRgb(0, 0, 0));
+                        }
                     }
-                    if (impulsowe.Contains(variable2))
+                    else
                     {
-                        Rectangle(xOffSet -10, positionDictionary[variable2]+15, xOffSet,positionDictionary[variable2]+25, Color.FromRgb(40, 120, 23));
+                        if (ciagle.Contains(variable2))
+                        {
+                            Rectangle(xOffSet - 30, positionDictionary[variable2] + 15, xOffSet,
+                                positionDictionary[variable2] + 25, Color.FromRgb(30, 34, 123));
+                        }
+                        if (impulsowe.Contains(variable2))
+                        {
+                            Rectangle(xOffSet - 10, positionDictionary[variable2] + 15, xOffSet,
+                                positionDictionary[variable2] + 25, Color.FromRgb(40, 120, 23));
+                        }
                     }
                 }
                 pomvar++;
@@ -151,7 +186,8 @@ namespace WykresyPI
 czyt, wys, wei, il
 wyad, wea
 czyt, wys, weja, przep, weak
-wyl, wea
+wyl, wea
+
          */
         private void Line(double x1, double y1, double x2, double y2,
 
